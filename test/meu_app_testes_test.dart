@@ -1,3 +1,4 @@
+import 'package:meu_app_testes/classes/viacep.dart';
 import 'package:meu_app_testes/meu_app_testes.dart' as app;
 import 'package:test/test.dart';
 
@@ -75,8 +76,8 @@ void main() {
   });
 
   test('retornar CEP', () async {
-    var body = await app.retornaCEP("01001000");
-    print(body);
+    ViaCep viaCep = ViaCep();
+    var body = await viaCep.retornaCEP("01001000");
     expect(body["bairro"], equals("Sé"));
     expect(body["logradouro"], equals("Praça da Sé"));
   });
