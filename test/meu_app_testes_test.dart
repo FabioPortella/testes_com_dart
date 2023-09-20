@@ -65,4 +65,19 @@ void main() {
   test('testar conversão para uppercase, teste 2', () {
     expect(app.convertToUpper('dio'), equalsIgnoringCase("dio"));
   });
+
+  test('Valor maior que 50', () {
+    expect(app.retornaValor(50), greaterThanOrEqualTo(50));
+  });
+
+  test('Valor diferente', () {
+    expect(app.retornaValor(50), isNot(49));
+  });
+
+  test('retornar CEP', () async {
+    var body = await app.retornaCEP("01001000");
+    print(body);
+    expect(body["bairro"], equals("Sé"));
+    expect(body["logradouro"], equals("Praça da Sé"));
+  });
 }
